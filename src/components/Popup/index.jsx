@@ -1,10 +1,10 @@
 import React from 'react'
 import './style.css';
 
-const index = () => {
+const index = ({closePopup}) => {
   return (
     <>
-      <div className='full-width-wrapper' ></div>
+      <div className='full-width-wrapper' onClick={closePopup} ></div>
       <div className='popup-wrapper'>
         <p className='title'>Load Settings</p>
 

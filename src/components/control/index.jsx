@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.css';
 
-const index = () => {
+const index = ({ openPopup }) => {
   return (
     <div className='control-wrapper' >
 
@@ -23,7 +23,7 @@ const index = () => {
         </div>
       </div>
 
-      <button className='primary-button'>Load Settings</button>
+      <button className='primary-button' onClick={openPopup}  >Load Settings</button>
     </div>
   )
 }

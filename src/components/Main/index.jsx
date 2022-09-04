@@ -4,8 +4,8 @@ import Popup from '../Popup/index'
 import videoOne from '../../assets/three.mp4'
 import videoTwo from '../../assets/two.mp4'
 
-const index = () => {
 
+const index = ({ popup, closePopup }) => {
   const playbacks = [
     { channel: "C-Sport Extra 2", url: '' },
     { channel: "C-Sport Extra", url: '' },
@@ -31,7 +31,10 @@ const index = () => {
 
   return (
     <>
-    <Popup />
+    {
+      popup && <Popup  {...{closePopup}} />
+    }
+    
         <div className='main-wrapper' >
       <div className='video-grid-wrapper'>
         {
