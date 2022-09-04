@@ -13,20 +13,3 @@
   margin-top: 50px;
 }
 
-.video-wrapper{
-  display: flex;
-  flex-direction: column;
-}
-
-.channel-name-label{
-  color: #fff;
-  font-size: 16px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-  opacity: .8;
-}
-
-
-video{
-  border-radius: 6px;
-}

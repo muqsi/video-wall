@@ -1,34 +1,10 @@
 import React from 'react'
 import './style.css';
 import Popup from '../Popup/index'
-import videoOne from '../../assets/three.mp4'
-import videoTwo from '../../assets/two.mp4'
+import Player from '../Player/index'
 
 
-const index = ({ popup, closePopup }) => {
-  const playbacks = [
-    { channel: "C-Sport Extra 2", url: '' },
-    { channel: "C-Sport Extra", url: '' },
-    { channel: "C-Sport-3", url: '' },
-    { channel: "C-Sport-4", url: '' },
-    { channel: "C-Sport-1", url: '' },
-    { channel: "C-Sport-2", url: '' },
-  ]
-
-
-  const VideoPlayer = ({ item, i }) => {
-    return (
-      <div className='video-wrapper'>
-        <p className='channel-name-label'>{item.channel}</p> 
-        <video width="350px" id="video" controls autoPlay>
-          <source src={i % 2 === 0 ? videoOne : videoTwo  } type="video/mp4" />
-        </video>
-      </div>
-    )
-  }
-
-
-
+const Index = ({ popup, closePopup, channelList }) => {
   return (
     <>
     {
@@ -38,7 +14,7 @@ const index = ({ popup, closePopup }) => {
         <div className='main-wrapper' >
       <div className='video-grid-wrapper'>
         {
-          playbacks.map((item, i) => <VideoPlayer item={item} i={i}/>)
+          channelList ?  channelList.map((item, i) => <Player item={item} i={i} key={i}  type="Primary" codec="DASH" />) : <>no contetns</>
         }
       </div>
     </div>
@@ -47,4 +23,4 @@ const index = ({ popup, closePopup }) => {
 
 }
 
-export default index
+export default Index
