@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.css';
 
-const index = ({ openPopup }) => {
+const index = ({ openPopup , setStreamType, setStreamCodec,  streamType, streamCodec,   }) => {
   return (
     <div className='control-wrapper' >
 
@@ -9,16 +9,16 @@ const index = ({ openPopup }) => {
         <div className='button-group'>
         <p className='button-label'> Select Encoding Formats </p>
            <div>
-          <button className='small-button-active' >Dash</button>
-          <button className='small-button'>HLS</button>
+          <button   className={ (streamCodec === 'DASH') ? 'small-button-active' : 'small-button'}    onClick={() => setStreamCodec('DASH') } >Dash</button>
+          <button className={ (streamCodec === 'HLS') ? 'small-button-active' : 'small-button'}  onClick={() => setStreamCodec('HLS') } >HLS</button>
           </div>
         </div>
 
         <div className='button-group'>
         <p className='button-label'> Select Stream Type </p>
         <div>
-          <button className='small-button-active'>Primary</button>
-          <button className='small-button'>Secondary</button>
+          <button className={ (streamType === 'Primary') ? 'small-button-active' : 'small-button'} onClick={() => setStreamType('Primary') } >Primary</button>
+          <button className={ (streamType === 'Secondary') ? 'small-button-active' : 'small-button'} onClick={() => setStreamType('Secondary')} >Secondary</button>
           </div>
         </div>
       </div>

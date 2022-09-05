@@ -4,7 +4,7 @@ import './style.css';
 const index = () => {
   return (
     <div className='header' >
-      <img src={require(`../../assets/diagnal.png`)} alt="" height="28px"  />
+      <img src={require(`../../assets/diagnal.png`)} alt="" height="35px"  />
     </div>
   )
 }
