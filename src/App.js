@@ -21,7 +21,6 @@ const App = () => {
     const cachedfps = localStorage.getItem('fps') || ''
     setInputInfo({ apiUrl: cachedApiUrl, apiKey: cachedApiKey, widevine: cachedWidevine, fps: cachedfps })
   }, [] )
-
   const handleInputChange = (event) => {
     const { name, value } = event.target
     setInputInfo({ ...inputInfo, [name]: value })

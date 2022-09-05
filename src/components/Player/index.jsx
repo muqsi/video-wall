@@ -29,15 +29,23 @@ const Index = ({ item, streamType, streamCodec, inputInfo }) => {
       if (currentStream && currentStream.url) {
         player.load(currentStream.url).then(function () {
           setError(false)
-          console.log(`Channel ${n} Loaded`);
+          console.log(`Channel ${n} : Loaded`);
           videoDOM.play();
         }).catch((e) => {
-          console.log(`Error on Channel ${n} !!!`, e)
+          console.log(`Channel ${n} : Failed`, e);
           setError(e)
           player.unload();
           player.destroy();
         });
       }
+
+      player.addEventListener('error', (e) => { 
+        const {detail} = e || {};
+        console.log(`Channel ${n} : Stream error`, e)
+        setError(detail);
+        player.unload();
+        player.destroy();
+       } );
     } else {
       console.error('Browser not supported!');
     }
@@ -56,6 +64,8 @@ const Index = ({ item, streamType, streamCodec, inputInfo }) => {
         return `Stream not working ( ${code} )`
     }
   }
+
+
 
   return (
     <div className='video-wrapper'>
